@@ -12,6 +12,7 @@ import io.reactivex.FlowableOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import me.levylin.lib.base.loader.PageVo;
 
 /**
  * 数据库Model
@@ -99,8 +100,9 @@ public abstract class DBModel<ITEM> implements IListModel<List<ITEM>, ITEM> {
         listener.onStart();
         mDisposable = Flowable.create((FlowableOnSubscribe<List<ITEM>>) e -> {
             e.setCancellable(this::cancelQuery);
-            List<ITEM> list = getQueriedList();
-            pageCount = getPageCount();
+            PageVo<ITEM> pageVo = getQueriedList();
+            List<ITEM> list = pageVo.getItemList();
+            pageCount = pageVo.getCount();
             if (e.isCancelled())
                 return;
             e.onNext(list);
@@ -121,9 +123,7 @@ public abstract class DBModel<ITEM> implements IListModel<List<ITEM>, ITEM> {
         mDisposable = null;
     }
 
-    protected abstract List<ITEM> getQueriedList() throws SQLException;
-
-    protected abstract int getPageCount() throws SQLException;
+    protected abstract PageVo<ITEM> getQueriedList() throws SQLException;
 
     protected abstract void cancelQuery();
 }
