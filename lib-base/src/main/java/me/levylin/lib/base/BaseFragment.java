@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.levylin.lib.loader.base.DataLoader;
-import com.levylin.lib.loader.base.INetworkView;
+import com.levylin.lib.loader.base.ILoaderView;
 
 import butterknife.ButterKnife;
 import me.levylin.lib.base.mvp.BasePresenter;
@@ -20,7 +20,7 @@ import me.levylin.lib.base.mvp.IMVPView;
  * Fragment基类
  * Created by LinXin on 2016/8/3 15:10.
  */
-public abstract class BaseFragment extends Fragment implements IMVPView, INetworkView {
+public abstract class BaseFragment extends Fragment implements IMVPView, ILoaderView {
 
     private View mainView;
     private DataLoader mDataLoader;//Loader总控,防止loader发现内存泄露

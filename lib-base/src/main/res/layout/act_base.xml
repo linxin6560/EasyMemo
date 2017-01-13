@@ -4,15 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ViewStub
-        android:id="@+id/act_base_toolbar_stub"
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/act_base_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inflatedId="@id/act_base_toolbar_stub" />
+        android:fitsSystemWindows="true" />
 
     <ViewStub
         android:id="@+id/act_base_content_view_stub"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/act_base_toolbar_stub" />
+        android:layout_below="@id/act_base_toolbar" />
 </RelativeLayout>

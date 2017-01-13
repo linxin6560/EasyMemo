@@ -1,7 +1,6 @@
 package me.levylin.lib.base;
 
 import android.graphics.drawable.BitmapDrawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.v4.app.ActivityCompat;
@@ -12,11 +11,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
-import android.view.WindowManager;
 
 import com.forman.lib.utils.ToastUtils;
 import com.levylin.lib.loader.base.DataLoader;
-import com.levylin.lib.loader.base.INetworkView;
+import com.levylin.lib.loader.base.ILoaderView;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -27,7 +25,7 @@ import me.levylin.lib.base.mvp.IMVPView;
  * Activity基类
  * Created by LinXin on 2016/6/7 10:08.
  */
-public abstract class BaseActivity extends AppCompatActivity implements IMVPView, INetworkView {
+public abstract class BaseActivity extends AppCompatActivity implements IMVPView, ILoaderView {
 
     protected View mainView;
     protected Toolbar mToolbar;
@@ -39,10 +37,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IMVPView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        }
-        if (getToolbarLayoutResId() != 0) {//如果没有设置toolbar，则不用默认布局，以减少层级
+        if (!useCustomLayoutId()) {//如果没有设置toolbar，则不用默认布局，以减少层级
             setContentView(R.layout.act_base);
             initToolbar();
             initContentView();
@@ -56,13 +51,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IMVPView
      * 初始化Toolbar
      */
     private void initToolbar() {
-        ViewStub toolbarStub = (ViewStub) findViewById(R.id.act_base_toolbar_stub);
-        toolbarStub.setLayoutResource(getToolbarLayoutResId());
-        View view = toolbarStub.inflate();
         mToolbar = (Toolbar) findViewById(R.id.act_base_toolbar);
-        if (mToolbar == null && view instanceof Toolbar) {
-            mToolbar = (Toolbar) view;
-        }
         setSupportActionBar(mToolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -98,12 +87,10 @@ public abstract class BaseActivity extends AppCompatActivity implements IMVPView
     protected abstract int getLayoutResId();
 
     /**
-     * 获取toolbar布局，这里可以自定义toolbar
-     *
-     * @return toolbar布局, toolbar的id必须为act_base_actionbar
+     * 是否使用自定义的布局
      */
-    protected int getToolbarLayoutResId() {
-        return R.layout.act_base_toolbar;
+    protected boolean useCustomLayoutId() {
+        return false;
     }
 
     /**
