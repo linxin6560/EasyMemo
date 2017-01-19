@@ -3,9 +3,10 @@ package me.levylin.easymemo.ui.main.dagger;
 import dagger.Component;
 import me.levylin.easymemo.AppComponent;
 import me.levylin.easymemo.ui.main.MainActivity;
-import me.levylin.easymemo.utils.ActivityScoped;
+import me.levylin.easymemo.utils.dagger.ActivityScoped;
 
 /**
+ * 主模块
  * Created by LinXin on 2017/1/18 17:18.
  */
 @ActivityScoped

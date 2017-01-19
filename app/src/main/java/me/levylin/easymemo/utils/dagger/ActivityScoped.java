@@ -1,4 +1,4 @@
-package me.levylin.easymemo.utils;
+package me.levylin.easymemo.utils.dagger;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
@@ -14,5 +14,5 @@ import javax.inject.Scope;
 @Documented
 @Scope
 @Retention(RetentionPolicy.RUNTIME)
-public @interface FragmentScoped {
+public @interface ActivityScoped {
 }

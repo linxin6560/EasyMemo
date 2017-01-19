@@ -73,7 +73,6 @@ public class SystemIntentUtils {
      * @return
      */
     public static Intent createJump2SystemCameraIntent() {
-        Intent jumpIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        return jumpIntent;
+        return new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
     }
 }

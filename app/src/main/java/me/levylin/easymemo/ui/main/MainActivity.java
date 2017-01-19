@@ -14,9 +14,11 @@ import butterknife.OnClick;
 import me.levylin.easymemo.EMApplication;
 import me.levylin.easymemo.R;
 import me.levylin.easymemo.entity.Memo;
+import me.levylin.easymemo.ui.add.AddMemoActivity;
 import me.levylin.easymemo.ui.main.adapter.MemoAdapter;
 import me.levylin.easymemo.ui.main.dagger.DaggerMainComponent;
 import me.levylin.easymemo.ui.main.dagger.MainModule;
+import me.levylin.easymemo.utils.IntentUtils;
 import me.levylin.lib.base.BaseActivity;
 import me.levylin.lib.base.loader.SimpleListLoader;
 import me.levylin.lib.base.loader.helper.LoadStateHelper;
@@ -37,7 +39,7 @@ public class MainActivity extends BaseActivity {
 
     @OnClick(R.id.main_fab)
     void onClick() {
-
+        IntentUtils.launch(this, AddMemoActivity.class);
     }
 
     @Override
