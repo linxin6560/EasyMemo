@@ -3,7 +3,7 @@ package me.levylin.easymemo;
 import javax.inject.Singleton;
 
 import dagger.Component;
-import me.levylin.easymemo.ui.main.MainActivity;
+import me.levylin.easymemo.entity.MemoDao;
 
 /**
  * App Component
@@ -13,5 +13,7 @@ import me.levylin.easymemo.ui.main.MainActivity;
 @Component(modules = {AppModule.class, DaoModule.class})
 public interface AppComponent {
 
-    void inject(MainActivity activity);
+    EMApplication application();
+
+    MemoDao memoDao();
 }

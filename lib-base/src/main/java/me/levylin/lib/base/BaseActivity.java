@@ -13,8 +13,8 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 
 import com.forman.lib.utils.ToastUtils;
-import com.levylin.lib.loader.base.DataLoader;
-import com.levylin.lib.loader.base.ILoaderView;
+import com.levylin.loader.DataLoader;
+import com.levylin.loader.ILoaderView;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;

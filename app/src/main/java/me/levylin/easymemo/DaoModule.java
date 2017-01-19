@@ -17,7 +17,7 @@ public class DaoModule {
 
     @Provides
     @Singleton
-    public DaoMaster providerDaoMaster(EMApplication application) {
+    public DaoMaster provideDaoMaster(EMApplication application) {
         DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(application, "memo.db");
         return new DaoMaster(helper.getWritableDb());
     }

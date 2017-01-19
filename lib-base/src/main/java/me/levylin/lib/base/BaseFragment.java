@@ -9,8 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.levylin.lib.loader.base.DataLoader;
-import com.levylin.lib.loader.base.ILoaderView;
+import com.levylin.loader.DataLoader;
+import com.levylin.loader.ILoaderView;
 
 import butterknife.ButterKnife;
 import me.levylin.lib.base.mvp.BasePresenter;

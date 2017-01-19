@@ -30,8 +30,9 @@ dependencies {
     compile project(':lib-utils')
     compile 'io.reactivex.rxjava2:rxjava:2.0.4'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    compile 'com.github.linxin6560:loader-base:1.0.0'
+    compile 'com.github.linxin6560:loader-base:1.2.0'
     compile 'com.jakewharton:butterknife:8.4.0'
+    compile 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.android.support:design:25.1.0'
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support:recyclerview-v7:25.1.0'

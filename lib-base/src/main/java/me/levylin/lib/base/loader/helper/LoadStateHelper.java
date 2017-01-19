@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.levylin.lib.loader.base.helper.intf.ILoadStateHelper;
-import com.levylin.lib.loader.base.helper.listener.OnReloadListener;
+import com.levylin.loader.helper.intf.ILoadStateHelper;
+import com.levylin.loader.helper.listener.OnReloadListener;
 
 import me.levylin.lib.base.R;
 
